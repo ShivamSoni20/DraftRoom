@@ -1,29 +1,34 @@
 # Verification record
 
-Local verification performed on 14 November 2026 using Node.js 22.22.0.
+Updated 14 November 2026. This record distinguishes the earlier local automated run from the latest hosted checks.
 
-## Automated
+## Automated checks
 
-- `npm install`: completed; npm reported zero known vulnerabilities at installation time.
-- `npm test`: **8 tests passed, 0 failed** against actual Express routes and libSQL/SQLite. Coverage includes missing identity, unshared access, viewer restrictions, editor saves, owner-only access changes, revocation, stale revision rejection, title/role validation, text and Markdown import, script/attribute stripping, application reinitialization, and database-file reopen persistence.
-- `npm run build`: production frontend build passes. Vite reports a bundle-size advisory for the editor dependency; this is a performance improvement opportunity, not a build failure.
+The earlier local verification on Node.js 22.22.0 recorded:
 
-The sandbox initially blocked local socket connections; the tests were rerun with local networking allowed. That environmental failure was not recorded as a passing test.
+- `npm test`: 8 tests passed, 0 failed, covering API access rules, viewer/editor permissions, revocation, stale-write protection, validation, import sanitization, and database persistence.
+- `npm run build`: production frontend build passed, with a Vite bundle-size advisory.
 
-## Browser verification actually performed
+After Vercel reported a CommonJS/ESM startup error involving `sanitize-html` and `htmlparser2`, `sanitize-html` was pinned to `2.17.4` in commit `6a8df31`. The latest hosted API is responding successfully. The automated test and build commands have not been independently rerun after that dependency pin in this verification session.
 
-- Loaded seeded dashboard and account switcher.
-- Created and renamed a document.
-- Typed content, applied a heading, and observed saved status.
-- Granted Bob viewer access, switched to Bob, opened the shared document, and checked disabled formatting/title editing.
-- Refreshed and reopened the saved shared content.
-- Imported `samples/team-brief.md` through the native file chooser; headings, bullets, numbered lists, and quote appeared in the editor.
-- Applied bold, italic, and underline and confirmed active states; navigated back after save.
-- Inspected desktop and 375 px mobile workspace/editor layouts.
-- Saved workspace, editor, and mobile screenshots in `screenshots/`.
+## Hosted checks
 
-Browser verification caught an initialization problem: Tiptap `setEditable` emits an update by default, marking opened documents dirty. The initialization now suppresses that event; a viewer document was reopened to confirm correct saved status.
+Independently checked on the public production deployment:
 
-## Remaining checks after deployment
+- The app opens without a Vercel team login.
+- `/api/users` returns the Alice, Bob, and Charlie demo accounts as JSON.
+- The dashboard loads and displays the two seeded demo documents.
+- The YouTube walkthrough opens while signed out and is approximately 3 minutes long.
 
-No Vercel deployment was performed at the candidate's request. The candidate's friend must supply the remote Turso database, configure Vercel, and run the checklist in `DEPLOYMENT.md`. Public URL accessibility, remote database permissions, Vercel cold-start behavior, and cross-browser hosted persistence are not yet verified. The video and Google Drive upload must also be completed by the candidate.
+The candidate reports testing the full live workflow: create and rename a document; apply formatting; save, refresh, and reopen; import a sample file; share as viewer; change to editor and save; revoke access; and confirm persistence in another browser.
+
+## Product boundaries
+
+Demo identity is simulated. The public app is for synthetic review content only. There is no real authentication, realtime merging, comments, version history, or DOCX import.
+
+## Submission links
+
+- Live app: https://draftroom-neon.vercel.app/
+- Walkthrough: https://youtu.be/oTBim2Cg5ps
+- GitHub source: https://github.com/ShivamSoni20/DraftRoom
+- Google Drive folder: https://drive.google.com/drive/folders/1L1qHQZASzl91ASMLXNRal1u0ZTGD5E0p?usp=sharing

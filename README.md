@@ -2,6 +2,9 @@
 
 A small collaborative document workspace built for the Ajaia AI-Native Full Stack Developer assignment.
 
+**Live application:** https://draftroom-neon.vercel.app/  
+**Source repository:** https://github.com/ShivamSoni20/DraftRoom
+
 ## Run locally
 
 Requirements: Node.js 22+, npm, internet access for the first dependency install.
@@ -64,4 +67,4 @@ Fonts are an optional Google Fonts enhancement; system fonts are the fallback. A
 
 With another 2–4 hours: add real session authentication, browser end-to-end regression tests, document revision history and a stronger conflict-resolution UI, then consider realtime collaboration.
 
-See also [ARCHITECTURE.md](ARCHITECTURE.md), [AI_WORKFLOW.md](AI_WORKFLOW.md), [SUBMISSION.md](SUBMISSION.md), and [WALKTHROUGH_SCRIPT.md](WALKTHROUGH_SCRIPT.md).
+See also [ARCHITECTURE.md](ARCHITECTURE.md), [AI_WORKFLOW.md](AI_WORKFLOW.md), [SUBMISSION.md](SUBMISSION.md), and [VERIFICATION.md](VERIFICATION.md).

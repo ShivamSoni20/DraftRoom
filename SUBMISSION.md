@@ -1,46 +1,40 @@
-# Draftroom — Ajaia Full Stack Developer Assignment
+# Draftroom — Collaborative Document Workspace
 
 Candidate: Shivam Soni
 
-## Links to complete before submission
+## Links
 
-- Google Drive folder: **ADD YOUR SHARED FOLDER LINK**
-- Live product: **ADD YOUR FRIEND'S VERIFIED VERCEL URL**
-- Walkthrough: **ADD YOUR PUBLIC 3–5 MINUTE VIDEO URL**
-
-These are handoff placeholders, not completed deliverables. Replace them before submitting.
-
-## Included in the source package
-
-- `src/`: React workspace, Tiptap editor, sharing dialog, responsive styles.
-- `server/`: Express API, SQLite/libSQL schema, seed data, permissions, validation.
-- `api/index.js` and `vercel.json`: Vercel function entrypoint and routing.
-- `tests/api.test.js`: meaningful API integration tests.
-- `samples/team-brief.md`: import demonstration file.
-- `package.json`, lockfile, `vite.config.js`, `index.html`, `.env.example`, `.gitignore`: reproducible setup.
-- `README.md`: setup, demo flow, supported files, limitations.
-- `ARCHITECTURE.md`: decisions, data model, access and save logic.
-- `AI_WORKFLOW.md`: tools, actual direction change, verification approach.
-- `DEPLOYMENT.md`: exact Vercel/Turso handoff instructions.
-- `VERIFICATION.md`: local validation results and remaining hosted checks.
-- `WALKTHROUGH_SCRIPT.md`: a 3–5 minute recording plan.
-- `WALKTHROUGH_URL.txt`: replace with the actual public video link.
-- `screenshots/`: captured workspace, editor, and mobile screenshots.
-
-No credentials, local database, node_modules, unused Sites starter, or generated dependency cache should be included in the source ZIP.
+- Submission folder: [Google Drive](https://drive.google.com/drive/folders/1L1qHQZASzl91ASMLXNRal1u0ZTGD5E0p?usp=sharing)
+- Live application: [Open Draftroom](https://draftroom-neon.vercel.app/)
+- Walkthrough: [Watch the 3-minute video](https://youtu.be/oTBim2Cg5ps)
+- Source repository: [GitHub](https://github.com/ShivamSoni20/DraftRoom)
 
 ## Reviewer access
 
-No password required. The clearly labeled demo switcher provides Alice Chen, Bob Williams, and Charlie Davis. This is simulated authentication. Use synthetic documents only.
+No password is required. Use the in-app demo account switcher to try Alice Chen, Bob Williams, and Charlie Davis. Authentication is simulated for this assessment.
 
-## Core scope
+## Review flow
 
-Create, rename, format, autosave, reopen, text/Markdown import, owned/shared lists, viewer/editor access, revocation, and persistent document/share storage. Extras: safe HTML export, owner deletion, stale-save protection.
+As Alice, create and format a document, wait for “All changes saved,” refresh, and reopen it. Import a `.txt` or `.md` file up to 100 KB. Share a document with Bob as a viewer, switch to Bob to confirm read-only access, change Bob to editor and save an edit, then revoke access. Documents and sharing data persist in Turso on Vercel.
 
-## Incomplete / intentionally omitted
+## Implemented
 
-Real authentication, simultaneous realtime merging, comments, version history, DOCX/PDF support, and email invitations. A hosted deployment and recorded walkthrough are not supplied automatically with the source code; add verified links above.
+Document creation, renaming, rich-text editing, autosave, reopening, Markdown and text import, owned/shared document views, owner/editor/viewer permissions, access revocation, HTML export, input validation, and stale-write protection.
 
-## Next 2–4 hours
+## Included in the Drive folder
 
-Add real session authentication, browser end-to-end regression tests, and revision recovery/history. Then investigate realtime editing based on actual team needs.
+- Final source ZIP matching this GitHub `main` branch.
+- `README.md`, `ARCHITECTURE.md`, and `AI_WORKFLOW.md`.
+- `DEPLOYMENT.md` and `VERIFICATION.md`.
+- This submission summary and `WALKTHROUGH_URL.txt`.
+- Application screenshots.
+
+The source ZIP excludes credentials, `.env` files, local database files, and `node_modules`.
+
+## Deliberate limitations
+
+Authentication is simulated. There is no realtime merging, comments, version history, or DOCX import. Public demo accounts are intended for synthetic review content only.
+
+## What I would build next
+
+With another 2–4 hours, I would prioritize real authentication, browser regression tests, and revision recovery before considering realtime collaboration.
